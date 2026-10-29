@@ -1,0 +1,18 @@
+package: community.lazycat.app.homepage
+version: 2.7.0
+name: Homepage
+description: A customizable service dashboard with bookmarks, widgets and optional API integrations.
+min_os_version: "1.6.0"
+homepage: https://github.com/gethomepage/homepage
+author: gethomepage
+license: GPL-3.0
+permissions:
+  required:
+    - net.internet
+locales:
+  zh:
+    name: Homepage
+    description: 可自定义的服务导航面板，支持书签、小组件和可选 API 集成。
+  en:
+    name: Homepage
+    description: A customizable service dashboard with bookmarks, widgets and optional API integrations.

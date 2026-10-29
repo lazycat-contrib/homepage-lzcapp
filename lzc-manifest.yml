@@ -1,0 +1,29 @@
+application:
+  subdomain: homepage
+  multi_instance: false
+  upstreams:
+    - location: /
+      backend: http://homepage:3000/
+services:
+  homepage:
+    # upstream: ghcr.io/gethomepage/homepage:v2.7.0
+    image: ghcr.1ms.run/gethomepage/homepage:v2.7.0
+    run_as: "1000:1000"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - HOMEPAGE_ALLOWED_HOSTS={{ .S.AppDomain }},homepage:3000,localhost:3000,127.0.0.1:3000
+      - NEXT_TELEMETRY_DISABLED=1
+      - TZ=Asia/Shanghai
+    binds:
+      - /lzcapp/var/config:/app/config
+usage: |
+  Homepage 原版服务导航面板。配置和日志保存在 /lzcapp/var/config；非 root UID/GID1000及目录属主映射需要懒猫系统1.6.0或更高。
+  首次缺少配置时由上游复制默认骨架；已有配置不会被覆盖。可在应用私有配置目录维护 settings.yaml、services.yaml、bookmarks.yaml 和 widgets.yaml。
+  Homepage 不提供原生账号体系，务必保留懒猫入口保护；本包没有 public_path 或宿主机暴露端口。
+  主机名白名单限制为本应用域名和容器本地地址，不使用通配符。未挂 Docker socket、宿主机目录或其他应用数据，也不预置任何服务API密钥。
+  服务地址、API密钥及可选集成需使用者自行配置并保护，内网服务和跨应用集成的实际连通性未验证。
+  不添加文件选择器拦截、smoke作业或容器运行测试门禁；镜像原有入口及健康检查没有改写。
+  尚未验证懒猫实机、默认配置初始化、面板小组件、持久化重启或任何真实服务集成。
