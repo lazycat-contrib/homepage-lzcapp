@@ -16,3 +16,7 @@ Homepage has no native account system. The application stays behind LazyCat auth
 The reusable workflow creates a versioned LPK Release asset. Both automatic private and official publishers are disabled. Only submit the independently verified URL/SHA256 to MiaoMiao community store after full alias/package/source duplicate checks.
 
 No file-chooser interceptor, smoke job or runtime test gate is added. The image-native entrypoint and health check are preserved. Configuration/workflow checks, mirror verification and LPK SHA256 do not establish startup, default initialization, dashboard rendering, persistence across restart or service-widget connectivity. Those runtime behaviors remain unverified.
+
+## Community release
+
+Published as MiaoMiao app 661, APPROVED, HomePage category 33, version 2.7.0. Build 40892990169 completed successfully with only the reusable LazyCat job. Logs confirm source/mirror verification of `ghcr.io/gethomepage/homepage:v2.7.0` to `ghcr.1ms.run/gethomepage/homepage:v2.7.0`. The 12800-byte LPK independently matched SHA256 `05435db8767d6b7139fcc423d3fe8daf53e99d805aa41f04bdcbf76f53322137`. Store identity/version/category were independently queried after creation. Runtime initialization, rendering, persistence and service integrations remain unverified.
